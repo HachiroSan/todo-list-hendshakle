@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Todo List Assessment
 
-## Getting Started
+This project is an implementation of a todo list application built as part of a technical assessment for Hendshake Sdn Bhd. The goal was to create a functional, well-structured todo application that demonstrates modern web development practices and technical proficiency.
 
-First, run the development server:
+## Assessment Requirements Implementation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 1. Adding to the List
+✅ Implemented a form with the following fields:
+- Activity (string) - Text input for task description
+- Price (number) - Numeric input with validation
+- Type (select) - Dropdown with predefined categories:
+  - education
+  - recreational
+  - social
+  - diy
+  - charity
+  - cooking
+  - relaxation
+  - music
+  - busywork
+- Booking Required (checkbox) - Boolean toggle
+- Accessibility (slider) - Range from 0.0 to 1.0
+
+### 2. Removing from the List
+✅ Implemented with:
+- Delete button for each todo item
+- Immediate visual feedback
+- Toast notifications for user confirmation
+
+### 3. List Summary
+✅ Implemented with:
+- Total count display at the top
+- Dynamic updates on add/remove
+
+### 4. Data Persistence
+✅ Implemented using:
+- Local storage for data persistence
+- State management through React Context
+- Automatic state restoration on page reload
+
+## Technical Implementation
+
+### Key Technical Decisions
+
+1. **Framework Choice: Next.js**
+   - Modern React framework
+   - Built-in TypeScript support
+   - Excellent developer experience
+
+2. **UI Components: shadcn/ui**
+   - High-quality, accessible components
+   - Customizable and maintainable
+   - Consistent design language
+
+3. **Form Management**
+   - React Hook Form for efficient form handling
+   - Zod schema validation for type safety
+   - Controlled inputs for better user experience
+
+4. **State Management**
+   - React Context for global state
+   - Local storage integration for persistence
+   - Optimized re-renders
+
+5. **Type Safety**
+   - TypeScript for robust type checking
+   - Zod schemas for runtime validation
+   - Type definitions for all components
+
+## Project Structure
+
+```
+src/
+├── app/                   # Next.js app directory
+├── components/           
+│   ├── ui/               # shadcn/ui components (only used ones kept)
+│   ├── TodoForm.tsx      # Form implementation
+│   └── TodoList.tsx      # List and item management
+├── contexts/             # State management
+├── lib/                  # Utilities
+├── styles/              # Global styles
+└── types/               # TypeScript definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running the Project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Install dependencies:
+```bash
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Start the development server:
+```bash
+yarn dev
+```
 
-## Learn More
+3. Open [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## Development Considerations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Performance**: Minimized re-renders using React's useMemo and useCallback
+- **Code Organization**: Clear separation of concerns and component structure
