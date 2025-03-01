@@ -21,7 +21,7 @@ export default function Home() {
         </main>
         <footer className="py-6 text-center text-xs text-muted-foreground">
           <a 
-            href="https://farhad.my" 
+            href="https://github.com/HachiroSan" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hover:text-foreground transition-colors"
