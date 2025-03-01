@@ -14,6 +14,20 @@ import { useTodo } from "@/contexts/TodoContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
+/**
+ * Why we use a form in TodoForm here:
+ * 1. Data Validation: Using react-hook-form with Zod schema ensures all inputs are properly validated
+ *    before submission, preventing invalid data from entering our todo list.
+ * 2. Form State Management: The form hook manages the state of all inputs, their values, errors,
+ *    and validation states in a centralized way, reducing complexity and potential bugs.
+ * 3. Accessibility: HTML form provides built-in accessibility features like form controls,
+ *    keyboard navigation, and proper labeling for screen readers.
+ * 4. User Experience: Native form features like form reset, validation feedback, and
+ *    preventing default submission behavior enhance the user experience.
+ * 5. Type Safety: Zod schema ensures type safety between form data and our todo item structure,
+ *    catching potential type mismatches at compile time.
+ */
+
 // Array of available todo types for the select input
 const todoTypes: TodoType[] = [
   "education",
@@ -157,7 +171,7 @@ export function TodoForm() {
               control={form.control}
               name="bookingRequired"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                <FormItem className="flex flex-row space-y-0">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
@@ -176,12 +190,12 @@ export function TodoForm() {
               name="accessibility"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Accessibility ({field.value.toFixed(2)})</FormLabel>
+                  <FormLabel>Accessibility ({field.value.toFixed(1)})</FormLabel>
                   <FormControl>
                     <Slider
                       min={0}
                       max={1}
-                      step={0.01}
+                      step={0.1}
                       value={[field.value]}
                       onValueChange={(value) => field.onChange(value[0])}
                     />
