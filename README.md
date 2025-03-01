@@ -1,6 +1,6 @@
 # Todo List Assessment
 
-This project is an implementation of a todo list application built as part of a technical assessment. The goal was to create a functional, well-structured todo application that demonstrates modern web development practices and technical proficiency.
+This project is an implementation of a todo list application built as part of a technical assessment for Hendshake Sdn Bhd.
 
 ## Live Preview
 
