@@ -14,6 +14,7 @@ import { useTodo } from "@/contexts/TodoContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
+// Array of available todo types for the select input
 const todoTypes: TodoType[] = [
   "education",
   "recreational",
@@ -26,6 +27,10 @@ const todoTypes: TodoType[] = [
   "busywork",
 ];
 
+/**
+ * Zod schema for form validation
+ * Defines the shape and validation rules for the todo form
+ */
 const formSchema = z.object({
   activity: z.string().min(1, "Activity is required"),
   price: z.number().min(0, "Price must be positive"),
@@ -44,9 +49,15 @@ const formSchema = z.object({
   accessibility: z.number().min(0).max(1),
 });
 
+/**
+ * TodoForm Component
+ * Provides a form interface for creating new todo items
+ * Uses react-hook-form with zod validation
+ */
 export function TodoForm() {
   const { addTodo } = useTodo();
 
+  // Initialize form with zod resolver and default values
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,6 +69,10 @@ export function TodoForm() {
     },
   });
 
+  /**
+   * Handle form submission
+   * Adds the new todo and shows a success toast
+   */
   function onSubmit(values: z.infer<typeof formSchema>) {
     addTodo(values);
     form.reset();
@@ -74,6 +89,7 @@ export function TodoForm() {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            {/* Activity Field */}
             <FormField
               control={form.control}
               name="activity"
@@ -88,6 +104,7 @@ export function TodoForm() {
               )}
             />
 
+            {/* Price Field */}
             <FormField
               control={form.control}
               name="price"
@@ -109,6 +126,7 @@ export function TodoForm() {
               )}
             />
 
+            {/* Type Field */}
             <FormField
               control={form.control}
               name="type"
@@ -134,6 +152,7 @@ export function TodoForm() {
               )}
             />
 
+            {/* Booking Required Field */}
             <FormField
               control={form.control}
               name="bookingRequired"
@@ -151,6 +170,7 @@ export function TodoForm() {
               )}
             />
 
+            {/* Accessibility Field */}
             <FormField
               control={form.control}
               name="accessibility"
