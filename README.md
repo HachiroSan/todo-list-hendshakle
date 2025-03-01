@@ -6,12 +6,6 @@ This project is an implementation of a todo list application built as part of a 
 
 🚀 **[View Live Demo](https://todo-list-hendshakle.vercel.app/)**
 
-Features in the live demo:
-- Dark/Light theme toggle
-- Responsive design
-- Instant feedback with toast notifications
-- Persistent data storage
-
 ## Important Note
 
 ⚠️ Due to dependency mismatches with Next.js 15, we'll need to use the `--force` flag when installing dependencies:
