@@ -1,6 +1,23 @@
 # Todo List Assessment
 
-This project is an implementation of a todo list application built as part of a technical assessment for Hendshake Sdn Bhd. The goal was to create a functional, well-structured todo application that demonstrates modern web development practices and technical proficiency.
+This project is an implementation of a todo list application built as part of a technical assessment. The goal was to create a functional, well-structured todo application that demonstrates modern web development practices and technical proficiency.
+
+## Live Preview
+
+🚀 **[View Live Demo](https://todo-list-hendshakle.vercel.app/)**
+
+Features in the live demo:
+- Dark/Light theme toggle
+- Responsive design
+- Instant feedback with toast notifications
+- Persistent data storage
+
+## Important Note
+
+⚠️ Due to dependency mismatches with Next.js 15, we'll need to use the `--force` flag when installing dependencies:
+```bash
+npm install --force or yarn install --force
+```
 
 ## Assessment Requirements Implementation
 
@@ -42,15 +59,9 @@ This project is an implementation of a todo list application built as part of a 
 
 ### Key Technical Decisions
 
-1. **Framework Choice: Next.js**
-   - Modern React framework
-   - Built-in TypeScript support
-   - Excellent developer experience
+1. **Framework Choice: Next.js 15.2.0**
 
 2. **UI Components: shadcn/ui**
-   - High-quality, accessible components
-   - Customizable and maintainable
-   - Consistent design language
 
 3. **Form Management**
    - React Hook Form for efficient form handling
@@ -84,9 +95,9 @@ src/
 
 ## Running the Project
 
-1. Install dependencies:
+1. Install dependencies (force flag required for Next.js 15 compatibility):
 ```bash
-yarn install
+yarn install --force
 ```
 
 2. Start the development server:
@@ -100,3 +111,6 @@ yarn dev
 
 - **Performance**: Minimized re-renders using React's useMemo and useCallback
 - **Code Organization**: Clear separation of concerns and component structure
+- **Type Safety**: Comprehensive TypeScript usage throughout the project
+- **User Experience**: Toast notifications and immediate feedback
+- **Code Quality**: Clean, documented, and maintainable code
