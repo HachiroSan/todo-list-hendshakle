@@ -9,6 +9,11 @@ interface TodoContextType {
   removeTodo: (id: string) => void;
 }
 
+// Type for the stored todo data (where date is stored as string)
+type StoredTodo = Omit<Todo, 'createdAt'> & {
+  createdAt: string;
+};
+
 const TodoContext = createContext<TodoContextType | undefined>(undefined);
 
 export function TodoProvider({ children }: { children: React.ReactNode }) {
@@ -18,9 +23,9 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const storedTodos = localStorage.getItem('todos');
     if (storedTodos) {
-      const parsedTodos = JSON.parse(storedTodos);
+      const parsedTodos = JSON.parse(storedTodos) as StoredTodo[];
       // Convert string dates back to Date objects
-      const todosWithDates = parsedTodos.map((todo: any) => ({
+      const todosWithDates = parsedTodos.map((todo) => ({
         ...todo,
         createdAt: new Date(todo.createdAt),
       }));
